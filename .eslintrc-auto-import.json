@@ -30,8 +30,17 @@
     "useParams": true,
     "useResolvedPath": true,
     "useRoutes": true,
-    "home": true,
-    "Button": true,
+    "KAutocomplete": true,
+    "KButton": true,
+    "Command": true,
+    "CommandDialog": true,
+    "CommandEmpty": true,
+    "CommandGroup": true,
+    "CommandInput": true,
+    "CommandItem": true,
+    "CommandList": true,
+    "CommandSeparator": true,
+    "CommandShortcut": true,
     "buttonVariants": true
   }
 }

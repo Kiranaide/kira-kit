@@ -1,6 +1,5 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
-
 import { cn } from "@/lib/utils";
 import { NavLink } from "react-router";
 
@@ -33,7 +32,7 @@ const buttonVariants = cva(
   }
 );
 
-const Button = (
+const KButton = (
   { className, variant, size, asChild = false, to, ...props },
   ref
 ) => {
@@ -48,6 +47,6 @@ const Button = (
   );
 };
 
-Button.displayName = "Button";
+KButton.displayName = "KButton";
 
-export { Button, buttonVariants };
+export { KButton, buttonVariants };

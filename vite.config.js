@@ -4,30 +4,25 @@ import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import AutoImport from "unplugin-auto-import/vite";
 import path from "path";
-import { resolveComponent } from "./component-resolver";
+import { webfontDownload } from "vite-plugin-webfont-dl";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    webfontDownload(),
     VitePWA({ registerType: "autoUpdate", injectRegister: "auto" }),
     AutoImport({
       include: [/\.[tj]sx?$/],
       imports: ["react", "react-router"],
-      dirs: ["./src/pages/**", "./src/components/**"],
+      dirs: ["./src/components/@kirakit"],
       viteOptimizeDeps: true,
       eslintrc: {
         enabled: true,
         filepath: "./.eslintrc-auto-import.json",
         globalsPropValue: true,
       },
-      resolvers: [
-        resolveComponent({
-          dirs: ["src/components/@kirakit"],
-          extensions: ["jsx"],
-        }),
-      ],
     }),
   ],
   resolve: {
