@@ -1,6 +1,6 @@
 import { Command as CommandPrimitive } from "cmdk";
-import { Check, Search } from "lucide-react";
-
+import { Check } from "lucide-react";
+import { DynamicIcon } from "lucide-react/dynamic";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useCallback, useRef, useState } from "react";
@@ -12,7 +12,6 @@ const Command = ({ className, ...props }, ref) => (
     ref={ref}
     className={cn(
       "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground",
-
       className
     )}
     {...props}
@@ -34,13 +33,13 @@ const CommandDialog = ({ children, ...props }) => {
 
 const CommandInput = ({ className, ...props }, ref) => (
   <div
-    className={cn("flex items-center border rounded-xl mb-2")}
+    className={cn("flex items-center border border-input rounded-md mb-2")}
     cmdk-input-wrapper=""
   >
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex w-full rounded-md bg-transparent py-2 px-4 text-base outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 shadow-xs transition-[color,box-shadow]",
+        "flex w-full rounded-md bg-transparent py-2 px-4 text-base md:text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 shadow-xs transition-[color,box-shadow]",
         "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
         "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
         className
@@ -129,6 +128,7 @@ const KAutocomplete = ({
   disabled,
   isLoading = false,
   label = "",
+  className,
 }) => {
   const inputRef = useRef(null);
   const [isOpen, setOpen] = useState(false);
@@ -181,17 +181,17 @@ const KAutocomplete = ({
           onFocus={() => setOpen(true)}
           placeholder={placeholder}
           disabled={disabled}
-          className="text-base"
+          className={className}
         />
       </div>
       <div className="relative mt-1">
         <div
           className={cn(
-            "animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded-xl bg-background outline-none",
+            "animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded-md bg-background outline-none",
             isOpen ? "block" : "hidden"
           )}
         >
-          <CommandList className="rounded-lg ring-1 ring-border">
+          <CommandList className="rounded-md ring-1 ring-border">
             {isLoading && (
               <CommandPrimitive.Loading>
                 <div className="p-1">

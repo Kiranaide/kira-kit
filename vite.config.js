@@ -1,15 +1,19 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import AutoImport from "unplugin-auto-import/vite";
 import path from "path";
 import { webfontDownload } from "vite-plugin-webfont-dl";
+import { barrel } from "vite-plugin-barrel";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    barrel({
+      packages: ["lucide-react"],
+    }),
     tailwindcss(),
     webfontDownload(),
     VitePWA({ registerType: "autoUpdate", injectRegister: "auto" }),

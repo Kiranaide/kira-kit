@@ -52,6 +52,7 @@ export default function Home() {
         value={value}
         disabled={false}
       />
+      <KInput type="text" label="Test" />
     </div>
   );
 }

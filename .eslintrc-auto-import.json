@@ -41,6 +41,7 @@
     "CommandList": true,
     "CommandSeparator": true,
     "CommandShortcut": true,
-    "buttonVariants": true
+    "buttonVariants": true,
+    "KInput": true
   }
 }
