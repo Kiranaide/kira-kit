@@ -47,12 +47,12 @@ export default function Home() {
         label="Test"
         options={FRAMEWORKS}
         placeholder="Find something"
-        isLoading={false}
         onValueChange={setValue}
         value={value}
-        disabled={false}
+        clearable
       />
-      <KInput type="text" label="Test" />
+      <KInput label="Test" />
+      <KTextArea label="Test" clearable />
     </div>
   );
 }

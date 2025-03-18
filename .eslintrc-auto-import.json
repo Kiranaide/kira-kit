@@ -42,6 +42,16 @@
     "CommandSeparator": true,
     "CommandShortcut": true,
     "buttonVariants": true,
-    "KInput": true
+    "KInput": true,
+    "Form": true,
+    "FormControl": true,
+    "FormDescription": true,
+    "FormField": true,
+    "FormItem": true,
+    "FormLabel": true,
+    "FormMessage": true,
+    "useFormField": true,
+    "KTextField": true,
+    "KTextArea": true
   }
 }

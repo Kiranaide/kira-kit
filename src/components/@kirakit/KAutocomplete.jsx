@@ -1,5 +1,5 @@
 import { Command as CommandPrimitive } from "cmdk";
-import { Check } from "lucide-react";
+import { Check, CircleX } from "lucide-react";
 import { DynamicIcon } from "lucide-react/dynamic";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -33,7 +33,7 @@ const CommandDialog = ({ children, ...props }) => {
 
 const CommandInput = ({ className, ...props }, ref) => (
   <div
-    className={cn("flex items-center border border-input rounded-md mb-2")}
+    className={cn("flex items-center border border-input rounded-md")}
     cmdk-input-wrapper=""
   >
     <CommandPrimitive.Input
@@ -97,7 +97,7 @@ const CommandItem = ({ className, ...props }, ref) => (
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default gap-2 select-none items-center rounded-sm px-4 py-2 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected='true']:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      "relative flex cursor-default gap-2 select-none items-center rounded-sm px-4 py-2 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected='true']:bg-primary data-[selected=true]:text-primary-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
       className
     )}
     {...props}
@@ -128,6 +128,8 @@ const KAutocomplete = ({
   disabled,
   isLoading = false,
   label = "",
+  required,
+  clearable,
   className,
 }) => {
   const inputRef = useRef(null);
@@ -156,7 +158,9 @@ const KAutocomplete = ({
 
   const handleBlur = useCallback(() => {
     setOpen(false);
-    setInputValue(selected?.label);
+    if (selected) {
+      setInputValue(selected.label);
+    }
   }, [selected]);
 
   const handleSelectOption = useCallback(
@@ -169,25 +173,51 @@ const KAutocomplete = ({
     [onValueChange]
   );
 
+  const handleClearInput = () => {
+    setInputValue("");
+    setSelected(null);
+  };
+
   return (
     <CommandPrimitive onKeyDown={handleKeyDown}>
       <div className={cn(label && "flex flex-col w-full gap-1")}>
-        {label && <Label className="text-base">{label}</Label>}
-        <CommandInput
-          ref={inputRef}
-          value={inputValue}
-          onValueChange={isLoading ? undefined : setInputValue}
-          onBlur={handleBlur}
-          onFocus={() => setOpen(true)}
-          placeholder={placeholder}
-          disabled={disabled}
-          className={className}
-        />
+        {label && (
+          <Label className="text-base">
+            {label}
+            {required && <span className="text-destructive"> * </span>}
+          </Label>
+        )}
+        <div className="relative w-full">
+          <CommandInput
+            ref={inputRef}
+            value={inputValue}
+            onValueChange={isLoading ? undefined : setInputValue}
+            onBlur={handleBlur}
+            onFocus={() => setOpen(true)}
+            placeholder={placeholder}
+            disabled={disabled}
+            className={className}
+          />
+          {clearable && (
+            <button
+              className={cn(
+                "absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg text-muted-foreground/80 outline-offset-2 transition-all duration-300 hover:text-foreground focus:z-10 focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+                inputValue && clearable
+                  ? "opacity-100 animate-fade-in"
+                  : "opacity-0 animate-fade-out pointer-events-none"
+              )}
+              aria-label="Clear input"
+              onClick={handleClearInput}
+            >
+              <CircleX size={16} strokeWidth={2} aria-hidden="true" />
+            </button>
+          )}
+        </div>
       </div>
-      <div className="relative mt-1">
+      <div className="relative">
         <div
           className={cn(
-            "animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded-md bg-background outline-none",
+            "animate-in fade-in-0 zoom-in-95 absolute top-2 z-10 w-full rounded-md bg-background outline-none",
             isOpen ? "block" : "hidden"
           )}
         >
@@ -214,7 +244,7 @@ const KAutocomplete = ({
                       onSelect={() => handleSelectOption(option)}
                       className={cn(
                         "flex w-full items-center justify-between gap-2",
-                        isSelected && "bg-accent text-accent-foreground"
+                        isSelected && "bg-primary text-primary-foreground"
                       )}
                     >
                       {option.label}
