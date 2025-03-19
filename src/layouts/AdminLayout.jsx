@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import KAdminSidebar from "../components/KAdminSidebar";
+import { KToggleMode } from "../components/KToggleMode";
 
 export default function AdminLayout() {
   return (
@@ -13,6 +14,7 @@ export default function AdminLayout() {
               orientation="vertical"
               className="mr-2 data-[orientation=vertical]:h-4"
             />
+            <KToggleMode />
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 lg:gap-6 py-4 lg:py-6">

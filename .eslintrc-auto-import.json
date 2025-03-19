@@ -93,6 +93,21 @@
     "KTooltipProvider": true,
     "KTooltipTrigger": true,
     "useSidebar": true,
-    "KSeparator": true
+    "KSeparator": true,
+    "KDropdownMenu": true,
+    "KDropdownMenuCheckboxItem": true,
+    "KDropdownMenuContent": true,
+    "KDropdownMenuGroup": true,
+    "KDropdownMenuItem": true,
+    "KDropdownMenuLabel": true,
+    "KDropdownMenuPortal": true,
+    "KDropdownMenuRadioGroup": true,
+    "KDropdownMenuRadioItem": true,
+    "KDropdownMenuSeparator": true,
+    "KDropdownMenuShortcut": true,
+    "KDropdownMenuSub": true,
+    "KDropdownMenuSubContent": true,
+    "KDropdownMenuSubTrigger": true,
+    "KDropdownMenuTrigger": true
   }
 }

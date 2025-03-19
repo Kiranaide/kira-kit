@@ -60,7 +60,6 @@ export default function KAdminSidebar({ ...props }) {
                 {item.items.map((item) => (
                   <KSidebarMenuItem key={item.title}>
                     <KSidebarMenuButton
-                      asChild
                       className="group/menu-button font-medium gap-3 h-9 rounded-md bg-gradient-to-r hover:bg-transparent hover:from-sidebar-accent hover:to-sidebar-accent/40 data-[active=true]:from-primary/20 data-[active=true]:to-primary/5 [&>svg]:size-auto"
                       isActive={item.isActive}
                       to={item.url}
@@ -68,7 +67,7 @@ export default function KAdminSidebar({ ...props }) {
                       {item.icon && (
                         <item.icon
                           className="text-muted-foreground/60 group-data-[active=true]/menu-button:text-primary"
-                          size={22}
+                          size={24}
                           aria-hidden="true"
                         />
                       )}
