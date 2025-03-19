@@ -52,7 +52,7 @@ export default function Home() {
         clearable
       />
       <KInput label="Test" />
-      <KTextArea label="Test" clearable />
+      <KTextArea label="Test" />
     </div>
   );
 }

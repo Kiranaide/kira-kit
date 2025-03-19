@@ -31,6 +31,14 @@
   --chart-3: #29414b;
   --chart-4: #dcc224;
   --chart-5: #f26e23;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0d1120;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #f1f5f9;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #1e293b;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #3b82f6;
 }
 
 .dark {
@@ -58,6 +66,14 @@
   --chart-3: #eba217;
   --chart-4: #9966cc;
   --chart-5: #e83a70;
+  --sidebar: #0d1120;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #1e293b;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #1e293b;
+  --sidebar-ring: #2563eb;
 }
 
 @theme inline {
