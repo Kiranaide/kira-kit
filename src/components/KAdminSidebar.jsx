@@ -47,7 +47,7 @@ export default function KAdminSidebar({ ...props }) {
   return (
     <KSidebar {...props}>
       <KSidebarHeader>
-        <h1 className="font-semibold text-xl">Kira-Kit</h1>
+        <h1 className="font-semibold text-xl text-center">Kira-Kit</h1>
       </KSidebarHeader>
       <KSidebarContent>
         {data.navMain.map((item) => (
@@ -81,7 +81,6 @@ export default function KAdminSidebar({ ...props }) {
           </KSidebarGroup>
         ))}
       </KSidebarContent>
-      <KSidebarRail />
     </KSidebar>
   );
 }

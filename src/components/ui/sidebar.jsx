@@ -1,5 +1,3 @@
-"use client";
-
 import { Slot } from "@radix-ui/react-slot";
 import { VariantProps, cva } from "class-variance-authority";
 import { PanelLeft } from "lucide-react";
@@ -31,10 +29,10 @@ const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
-const SidebarContext = null;
+const SidebarContext = React.createContext(null);
 
 function useSidebar() {
-  const context = useContext(SidebarContext);
+  const context = React.useContext(SidebarContext);
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
@@ -55,13 +53,13 @@ const SidebarProvider = (
   ref
 ) => {
   const isMobile = useIsMobile();
-  const [openMobile, setOpenMobile] = useState(false);
+  const [openMobile, setOpenMobile] = React.useState(false);
 
   // This is the internal state of the sidebar.
   // We use openProp and setOpenProp for control from outside the component.
-  const [_open, _setOpen] = useState(defaultOpen);
+  const [_open, _setOpen] = React.useState(defaultOpen);
   const open = openProp ?? _open;
-  const setOpen = useCallback(
+  const setOpen = React.useCallback(
     (value) => {
       const openState = typeof value === "function" ? value(open) : value;
       if (setOpenProp) {
@@ -77,12 +75,12 @@ const SidebarProvider = (
   );
 
   // Helper to toggle the sidebar.
-  const toggleSidebar = useCallback(() => {
+  const toggleSidebar = React.useCallback(() => {
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
   }, [isMobile, setOpen, setOpenMobile]);
 
   // Adds a keyboard shortcut to toggle the sidebar.
-  useEffect(() => {
+  React.useEffect(() => {
     const handleKeyDown = (event) => {
       if (
         event.key === SIDEBAR_KEYBOARD_SHORTCUT &&
@@ -101,10 +99,8 @@ const SidebarProvider = (
   // This makes it easier to style the sidebar with Tailwind classes.
   const state = open ? "expanded" : "collapsed";
 
-  const contextValue =
-    useMemo <
-    SidebarContextProps >
-    (() => ({
+  const contextValue = React.useMemo(
+    () => ({
       state,
       open,
       setOpen,
@@ -113,7 +109,8 @@ const SidebarProvider = (
       setOpenMobile,
       toggleSidebar,
     }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]);
+    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
+  );
 
   return (
     <SidebarContext.Provider value={contextValue}>
@@ -568,7 +565,7 @@ const SidebarMenuSkeleton = (
   ref
 ) => {
   // Random width between 50 to 90%.
-  const width = useMemo(() => {
+  const width = React.useMemo(() => {
     return `${Math.floor(Math.random() * 40) + 50}%`;
   }, []);
 

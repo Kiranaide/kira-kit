@@ -92,6 +92,7 @@
     "KTooltipContent": true,
     "KTooltipProvider": true,
     "KTooltipTrigger": true,
-    "useSidebar": true
+    "useSidebar": true,
+    "KSeparator": true
   }
 }
