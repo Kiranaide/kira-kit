@@ -108,6 +108,22 @@
     "KDropdownMenuSub": true,
     "KDropdownMenuSubContent": true,
     "KDropdownMenuSubTrigger": true,
-    "KDropdownMenuTrigger": true
+    "KDropdownMenuTrigger": true,
+    "KTable": true,
+    "KTableBody": true,
+    "KTableCaption": true,
+    "KTableCell": true,
+    "KTableFooter": true,
+    "KTableHead": true,
+    "KTableHeader": true,
+    "KTableRow": true,
+    "KDataTable": true,
+    "KPagination": true,
+    "KPaginationContent": true,
+    "KPaginationEllipsis": true,
+    "KPaginationItem": true,
+    "KPaginationLink": true,
+    "KPaginationNext": true,
+    "KPaginationPrevious": true
   }
 }
