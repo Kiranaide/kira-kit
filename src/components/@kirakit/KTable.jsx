@@ -48,7 +48,7 @@ const KTableRow = ({ className, ...props }, ref) => (
   <tr
     ref={ref}
     className={cn(
-      "border-b transition-colors in-[tbody]:hover:bg-muted/50 in-[tbody]:odd:bg-muted/50 in-[tbody]:odd:hover:bg-transparent data-[state=selected]:bg-muted",
+      "border-b transition-colors in-[tbody]:hover:bg-muted/50 data-[state=selected]:bg-muted",
       className
     )}
     {...props}

@@ -1,7 +1,25 @@
-import { Contact, HelpCircle, Layout, ScanLine, Settings } from "lucide-react";
+import {
+  AlertCircle,
+  Contact,
+  HelpCircle,
+  Layout,
+  ScanLine,
+  Settings,
+} from "lucide-react";
 
 const data = {
   navMain: [
+    {
+      title: "Components",
+      url: "#",
+      items: [
+        {
+          title: "Alert",
+          url: "/components/alert",
+          icon: AlertCircle,
+        },
+      ],
+    },
     {
       title: "Sections",
       url: "#",
@@ -60,7 +78,7 @@ export default function KAdminSidebar({ ...props }) {
                 {item.items.map((item) => (
                   <KSidebarMenuItem key={item.title}>
                     <KSidebarMenuButton
-                      className="group/menu-button font-medium gap-3 h-9 rounded-md bg-gradient-to-r hover:bg-transparent hover:from-sidebar-accent hover:to-sidebar-accent/60 data-[active=true]:from-primary/70 data-[active=true]:to-primary/50 data-[active=true]:shadow data-[active=true]:shadow-primary/50 [&>svg]:size-auto"
+                      className="group/menu-button font-medium gap-3 h-9 rounded-md bg-gradient-to-r hover:bg-transparent hover:from-sidebar-accent hover:to-sidebar-accent/60 data-[active=true]:from-primary data-[active=true]:to-primary/70 data-[active=true]:shadow data-[active=true]:shadow-primary/50 [&>svg]:size-auto"
                       isActive={item.isActive}
                       to={item.url}
                     >

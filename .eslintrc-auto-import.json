@@ -124,6 +124,7 @@
     "KPaginationItem": true,
     "KPaginationLink": true,
     "KPaginationNext": true,
-    "KPaginationPrevious": true
+    "KPaginationPrevious": true,
+    "KAlert": true
   }
 }

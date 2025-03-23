@@ -9,7 +9,7 @@ const Input = forwardRef(({ className, type, ...props }, ref) => {
     <input
       type={type}
       className={cn(
-        "flex w-full border rounded-md bg-transparent py-2 px-4 text-base md:text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 shadow-xs transition-[color,box-shadow]",
+        "flex w-full border rounded-md bg-transparent py-2 px-4 text-base outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 shadow-xs transition-[color,box-shadow]",
         "focus-visible:border-ring/60 focus-visible:ring-ring/50 focus-visible:ring-[2px]",
         "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
         type === "search" &&
